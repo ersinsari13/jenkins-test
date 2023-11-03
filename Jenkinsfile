@@ -3,9 +3,8 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        ansible-playbook playbook1.yml
+        sh 'ansible-playbook playbook1.yml'
       }
     }
   }
 }
-  
