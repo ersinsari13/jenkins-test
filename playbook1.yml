@@ -4,6 +4,6 @@
   tasks:
     - name: ping
       ansible.builtin.ping:
-    #- name: debug
-      #ansible.builtin.debug:
-        #var: {{ ERSIN }}
+    - name: debug
+      ansible.builtin.debug:
+        var: {{ ERSIN }}
