@@ -5,7 +5,7 @@ pipeline {
       steps {
         script {
           withCredentials([usernamePassword(credentialsId: 'ERSIN' , usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-            sh 'echo $USERNAME $PASSWORD
+            sh 'echo $USERNAME $PASSWORD'
         }
       }
     }
