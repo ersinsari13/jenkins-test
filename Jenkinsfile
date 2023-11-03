@@ -6,7 +6,15 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        ansiblePlaybook credentialsId: 'usa_key', extras: '$ERSIN', installation: 'ansible', inventory: 'inventory.ini', playbook: 'playbook1.yml', vaultTmpPath: ''
+       script {
+          sh """
+            ansible-playbook \
+            --vault-password-file \$USA_KEY_CREDENTIAL \
+            --inventory inventory.ini \
+            --extra-vars "ERSIN=\$ERSIN" \
+            playbook1.yml
+            """
+       }
       }
     }
   }
