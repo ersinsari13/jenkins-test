@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        ansible-playbook playbook.yml
+        ansible-playbook playbook.yml -e "ERSIN=${ERSIN}"
       }
     }
   }
