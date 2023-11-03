@@ -3,7 +3,10 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh 'ansible-playbook -e ERSIN=${ERSIN} playbook1.yml'
+        script {
+          withCredentials([string(credentialsId: 'ERSIN', variable: 'ERSIN1')])
+          sh 'ansible-playbook playbook1.yml'
+        }
       }
     }
   }
