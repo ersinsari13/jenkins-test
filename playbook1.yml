@@ -5,6 +5,6 @@
     - name: ping
       ansible.builtin.ping:
     - name: debug
-      ansible.builtin.command: echo ${ERSIN1} > /home/ec2-user/ersin.txt
+      ansible.builtin.command: echo ${PASSWORD} ${USERNAME} > /home/ec2-user/ersin.txt
     - name: shell
-      ansible.builtin.shell: echo ${ERSIN1} > /var/lib/jenkins/ersin.txt
+      ansible.builtin.shell: echo ${PASSWORD} ${USERNAME} > /var/lib/jenkins/ersin.txt
