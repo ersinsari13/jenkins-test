@@ -6,8 +6,8 @@ pipeline {
         script {
           withCredentials([usernamePassword(credentialsId: 'ERSIN' , usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
             sh 'echo $USERNAME $PASSWORD'
-            sh 'echo -n $PASSWORD | base64'
-            //sh 'ansible-playbook -e USERNAME=$USERNAME PASSWORD=$PASSWORD playbook1.yml'
+            sh 'er=echo -n $PASSWORD | base64'
+            sh 'ansible-playbook -e USERNAME=$USERNAME PASSWORD=$er playbook1.yml'
             
         }
       }
