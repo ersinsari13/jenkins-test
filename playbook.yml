@@ -1,0 +1,9 @@
+- name: test playboook
+  become: true
+  hosts: server
+  tasks:
+    - name: ping
+      ansible.builtin.ping:
+    - name: debug
+      ansible.builtin.debug:
+        var: $ERSIN
