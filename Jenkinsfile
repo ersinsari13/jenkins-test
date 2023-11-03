@@ -1,9 +1,12 @@
 pipeline {
   agent any
+  tools {
+    ansible 'ansible'
+  }  
   stages {
     stage('test') {
       steps {
-        sh 'ansible-playbook playbook1.yml -e ERSIN=$ERSIN'
+        ansiblePlaybook credentialsId: 'usa_key', extras: 'ERSIN=$ERSIN', installation: 'ansible', inventory: 'inventory.ini', playbook: 'playbook1.yml', vaultTmpPath: ''
       }
     }
   }
