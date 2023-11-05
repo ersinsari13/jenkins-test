@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-     ANSIBLE_VAULT=credentials("${MY_VAULT_FILE}")
+     ANSIBLE_VAULT=credentials('MY_VAULT_FILE')
   }  
   stages {
     stage('test') {
