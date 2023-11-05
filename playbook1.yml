@@ -1,6 +1,8 @@
 - name: test playboook
   become: true
   hosts: server
+  vars_files:
+    - secret.yml
   tasks:
     - name: ping
       ansible.builtin.ping:
