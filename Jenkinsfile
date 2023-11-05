@@ -1,13 +1,12 @@
 pipeline {
   agent any
-  stages {
+  environment {
+    DB_PASSWORD=sh(script: 'aws --region=us-east-1 ssm get-parameters --names "db_password" --query "Parameters[*].{Value:Value}" --output text', returnStdout:true).trim()
+  }  
+    stages {
     stage('test') {
       steps {
-        script {
-          withCredentials([usernamePassword(credentialsId: 'ERSIN' , usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-            sh 'echo $USERNAME $PASSWORD'
-            sh 'er=echo -n $PASSWORD | base64'
-            sh 'ansible-playbook -e USERNAME=$USERNAME PASSWORD=$er playbook1.yml'
+            sh 'ansible-playbook -e DB_PASSWORD=$DB_PASSWORD playbook1.yml'
             
         }
       }
