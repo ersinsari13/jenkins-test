@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-     ANSIBLE_VAULT=credentials('MY_VAULT_FILE')
+     ANSIBLE_VAULT=script:'aws ssm get-parameter --name vault_pass --query Parameter.Value --output text'
   }  
   stages {
     stage('test') {
