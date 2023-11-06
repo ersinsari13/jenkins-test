@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-          sh "ansible-playbook --vault-password-file ./vault_password.sh
+          sh "ansible-playbook --vault-password-file ./vault_password.sh"
         }
        }
     }
