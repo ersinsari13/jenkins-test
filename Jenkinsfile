@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-          sh "ansible-playbook --extra-vars 'vault_secret=$VAULT_SECRET' playbook1.yml 
+          sh "ansible-playbook --extra-vars 'vault_secret=$VAULT_SECRET' playbook1.yml"
         }
        }
     }
